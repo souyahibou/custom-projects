@@ -45,7 +45,7 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 % hanami new bookshelf --database=postgresql
 ```
 
-###change inner .env.development
+### change inner .env.development
 Pattern: DATABASE_URL="postgresql://username:password@host/dbname"
 Origin: DATABASE_URL="postgresql://localhost/custom_projects_development" =>
 Final: DATABASE_URL="postgresql://syb8@/custom_projects_development"
@@ -57,22 +57,23 @@ _dbname: custom_projects_development_
 
 ## Procédure to set postgresql
 
-###Edit .development and .test environment config files
-* #.env_development Pattern
+### Edit .development and .test environment config files
++ #.env_development Pattern
 DATABASE_URL="postgresql://username:password@localhost/project_name_hanami_development"
 
-* .env_test Pattern
++ .env_test Pattern
 DATABASE_URL="postgresql://username:password@localhost/project_name_hanami_test"
 
-###Create a database for development and test environment.
+### Create a database for development and test environment.
 
 sudo su - postgres
 createuser --pwprompt username
 createdb -O username project_name_hanami_development
 createdb -O username project_name_hanami_test
 
-###Prepare database.
+### Prepare database.
 hanami db prepare
+
 
 ### Run Server
 
@@ -95,12 +96,12 @@ hanami db prepare
 
 
 
-##How to Manage PostgreSQL data form CLI
+## How to Manage PostgreSQL data form CLI
 
-###run the server's root user:
+### run the server's root user:
     su - postgres
 
-###Creating PostgreSQL users
+### Creating PostgreSQL users
     createuser --pwprompt
       At the Enter name of role to add: prompt, type the user's name.
       At the Enter password for new role: prompt, type a password for the user.
@@ -110,20 +111,20 @@ hanami db prepare
       At the Shall the new role be allowed to create more new roles? prompt, type y if you want to allow the user to create new users. Otherwise, type n.
       PostgreSQL creates the user with the settings you specified.
 
-###Creating PostgreSQL databases
+### Creating PostgreSQL databases
   createdb -O user dbname (createdb dbname)
 
-###GRANT permissions ON DATABASE dbname TO username;
+### GRANT permissions ON DATABASE dbname TO username;
   permissions(ALL PERMISSIONS)
 
-###Deleting PostgreSQL databases
+### Deleting PostgreSQL databases
   dropdb dbname
 
-###Deleting PostgreSQL users
+### Deleting PostgreSQL users
   dropuser username
 
 
-##latexpdf
+## latexpdf
 Latexpdf::Configuration.new
 a=Latexpdf::PdfGenerator.new("/home/syb8/Documents/Projet/1.Ruby/Rails/custom_projects/apps/cv/templates/ctrl1/show.pdf.erb")
 
